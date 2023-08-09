@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TechnicalTask</string>
+    <string name="start">Загрузить</string>
+    <string name="id">id: %1$s \nuuid: %2$s</string>
+</resources>
