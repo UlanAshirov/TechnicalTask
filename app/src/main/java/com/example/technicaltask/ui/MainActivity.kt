@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        binding.tvId.text = getString(R.string.id, App.prefs.getId(), App.prefs.getUuid())
         initListeners()
     }
 
@@ -41,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 super.onPageFinished(view, url)
                 viewModel.handleRedirect(url ?: "")
                 viewModel.hideProgressBar()
+                binding.tvId.text = getString(R.string.id, App.prefs.getId(), App.prefs.getUuid())
                 binding.webView.visible()
                 binding.btnStart.gone()
             }
@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnStart.setOnClickListener {
             viewModel.showProgressBar()
             viewModel.loadWebPage()
-            binding.tvId.text = getString(R.string.id, App.prefs.getId(), App.prefs.getUuid())
         }
         viewModel.webView.observe(this) {
             binding.webView.loadUrl(it)
