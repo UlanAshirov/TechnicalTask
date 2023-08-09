@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        binding.tvId.text = getString(R.string.id, App.prefs.getId(), App.prefs.getUuid())
         initListeners()
     }
 
