@@ -14,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField('String', 'WEB_URL', "\"http://app.zaimforyou.ru/hello\"")
+        buildConfigField 'String', 'WEB_URL', "\"http://app.zaimforyou.ru/hello\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

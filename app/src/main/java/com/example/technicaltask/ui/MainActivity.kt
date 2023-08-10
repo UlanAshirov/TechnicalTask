@@ -2,13 +2,11 @@ package com.example.technicaltask.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.technicaltask.App
 import com.example.technicaltask.R
@@ -54,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.webView.observe(this) {
             binding.webView.loadUrl(it)
+            val webSettings = binding.webView.settings
+            webSettings.javaScriptEnabled
         }
 
         viewModel.isLoading.observe(this) { loading ->
